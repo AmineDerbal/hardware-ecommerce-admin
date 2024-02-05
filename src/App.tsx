@@ -1,32 +1,14 @@
-import React, { useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from './redux/store';
-import { Home, Login } from './pages';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Topbar, Sidebar } from './components';
 
 const App = () => {
-  const dispatch = useDispatch();
-  const { isAdmin } = useSelector((state: RootState) => state.user);
-  useEffect(() => {}, [isAdmin]);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   return (
     <div>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={isAdmin ? <Home /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-        </Routes>
-      </Router>
+      <Topbar />
+      <Sidebar />
+      <Routes></Routes>
     </div>
   );
 };
