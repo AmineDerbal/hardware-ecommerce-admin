@@ -27,41 +27,41 @@ const FeaturedInfo = () => {
   }, []);
 
   return (
-    <div className="featured">
-      <div className="featuredItem">
-        <span className="featuredTitle">Revanue</span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">${income[1]?.total}</span>
-          <span className="featuredMoneyRate">
+    <div className="w-full flex justify-between">
+      <div className="flex-1 mx-[20px] p-[30px] rounded-[10px] cursor-pointer shadow-lg">
+        <span className="text-[20px]">Revanue</span>
+        <div className="my-[10px] flex items-center">
+          <span className="text-[30px] font-semibold">${income[1]?.total}</span>
+          <span className="flex items-center ml-[20px]">
             %{Math.floor(perc)}{' '}
             {perc < 0 ? (
-              <ArrowDownward className="featuredIcon negative" />
+              <ArrowDownward className="text-[14px] ml-[5px] negative" />
             ) : (
-              <ArrowUpward className="featuredIcon" />
+              <ArrowUpward className="text-[14px] ml-[5px]" />
             )}
           </span>
         </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="text-[15px] text-gray">Compared to last month</span>
       </div>
-      <div className="featuredItem">
-        <span className="featuredTitle">Sales</span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$4,415</span>
-          <span className="featuredMoneyRate">
-            -1.4 <ArrowDownward className="featuredIcon negative" />
+      <div className="flex-1 mx-[20px] p-[30px] rounded-[10px] cursor-pointer shadow-lg">
+        <span className="text-[20px]">Sales</span>
+        <div className="my-[10px] flex items-center">
+          <span className="text-[30px] font-semibold">$4,415</span>
+          <span className="flex items-center ml-[20px]">
+            -1.4 <ArrowDownward className="text-[14px] ml-[5px] negative" />
           </span>
         </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="text-[15px] text-gray">Compared to last month</span>
       </div>
-      <div className="featuredItem">
-        <span className="featuredTitle">Cost</span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,225</span>
-          <span className="featuredMoneyRate">
-            +2.4 <ArrowUpward className="featuredIcon" />
+      <div className="flex-1 mx-[20px] p-[30px] rounded-[10px] cursor-pointer shadow-lg">
+        <span className="text-[20px]">Cost</span>
+        <div className="my-[10px] flex items-center">
+          <span className="text-[30px] font-semibold">$2,225</span>
+          <span className="flex items-center ml-[20px]">
+            +2.4 <ArrowUpward className="text-[14px] ml-[5px]" />
           </span>
         </div>
-        <span className="featuredSub">Compared to last month</span>
+        <span className="text-[15px] text-gray">Compared to last month</span>
       </div>
     </div>
   );
