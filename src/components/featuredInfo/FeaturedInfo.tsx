@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const FeaturedInfo = () => {
-  const [income, setIncome] = useState([]);
+  const [income, setIncome] = useState<{ total: number }[]>([]);
   const [perc, setPerc] = useState(0);
   const persistRoot = localStorage.getItem('persist:root');
   let tokenString: string;
