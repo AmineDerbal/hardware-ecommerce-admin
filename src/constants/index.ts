@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const userData = [
   {
     name: 'Jan',
@@ -49,4 +51,14 @@ const userData = [
   },
 ];
 
-export { userData };
+const persistRoot = localStorage.getItem('persist:root');
+let tokenString: string;
+const userString = JSON.parse(persistRoot as string);
+const user = JSON.parse(userString);
+tokenString = user.accessToken;
+const userRequest = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  headers: { token: `Bearer ${tokenString}` },
+});
+
+export { userData, userRequest };
