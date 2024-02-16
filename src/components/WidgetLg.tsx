@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { format } from 'timeago.js';
+import { userRequest } from '../constants';
 
 const WidgetLg = () => {
   interface Order {
@@ -11,15 +11,7 @@ const WidgetLg = () => {
     status: string;
   }
   const [orders, setOrders] = useState<Order[]>([]);
-  const persistRoot = localStorage.getItem('persist:root');
-  let tokenString: string;
-  const userString = JSON.parse(persistRoot as string);
-  const user = JSON.parse(userString);
-  tokenString = user.accessToken;
-  const userRequest = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-    headers: { token: `Bearer ${tokenString}` },
-  });
+
   useEffect(() => {
     const getOrders = async () => {
       try {
