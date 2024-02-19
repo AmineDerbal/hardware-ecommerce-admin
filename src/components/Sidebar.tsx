@@ -2,7 +2,6 @@ import React from 'react';
 import {
   LineStyle,
   Timeline,
-  TrendingUp,
   PermIdentity,
   Storefront,
   AttachMoney,
@@ -17,7 +16,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div className="flex-1 h-screen bg-gray-100 sticky mt-[50px]">
+    <div className="h-fit bg-gray-100 sticky mt-[50px]">
       <div className="p-[20px] text-[#555]">
         <div className="mb-[10px]">
           <h3 className="text-xs text-gray-500">Dashboard</h3>
@@ -31,14 +30,6 @@ const Sidebar = () => {
                 Home
               </li>
             </Link>
-            <li className="p-[5px] cursor-pointer flex items-center rounded-[10px]">
-              <Timeline className="mr-[5px] text-[20px]" />
-              Analytics
-            </li>
-            <li className="p-[5px] cursor-pointer flex items-center rounded-[10px]">
-              <TrendingUp className="mr-[5px] text-[20px]" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="mb-[10px]">
