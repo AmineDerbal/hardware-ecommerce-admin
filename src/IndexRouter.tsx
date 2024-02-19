@@ -7,25 +7,46 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { RootState } from './redux/store';
-import App from './App';
-import { Login } from './pages';
+import { Topbar, Sidebar } from './components';
+import { Login, Home, UserList } from './pages';
 
 const IndexRouter = () => {
-  const { isAdmin } = useSelector((state: RootState) => state.user);
-  useEffect(() => {}, [isAdmin]);
+  const { isAdmin, accessToken } = useSelector(
+    (state: RootState) => state.user,
+  );
+  if (isAdmin) {
+    console.log('the user access token is : ', accessToken);
+  }
+  useEffect(() => {}, [isAdmin, accessToken]);
   return (
     <div>
       <Router>
         <Routes>
           <Route
-            path="/"
-            element={isAdmin ? <App /> : <Navigate to="/login" />}
-          />
-          <Route
             path="/login"
             element={<Login />}
           />
         </Routes>
+        {isAdmin ? (
+          <div>
+            <Topbar />
+            <div className="flex">
+              <Sidebar />
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home />}
+                />
+                <Route
+                  path="/users"
+                  element={<UserList />}
+                />
+              </Routes>
+            </div>
+          </div>
+        ) : (
+          <Navigate to="/login" />
+        )}
       </Router>
     </div>
   );
